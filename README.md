@@ -32,8 +32,10 @@ Flux的安装默认提供了两种方式，传统的使用yaml文件部署的方
 
 ![Git-Repo-Config.png](imgs/Git-Repo-Config.png?raw=true)
 
+如果想要自己使用这个例子，请先将该仓库 fork 到本地，然后将 `--git-url` 修改为：
+
 ```shell
---git-url=git@github.com:YOUR-GITHUB/REPO-NAME
+--git-url=git@github.com:YOUR_GITHUB_ACCOUNT/REPO-NAME
 ```
 
 PS: 因为官方的例子过于繁琐，笔者在这里提供了更直观的例子。这个例子很简单，只由一个Nginx-Deployment和带有NodePort的Nginx-Service组成，项目已经存储在[Github](https://github.com/youngercloud/flux-get-start-easy)
@@ -79,7 +81,7 @@ fluxctl安装好之后，我们需要部署我们的Deploy Key到Github Repo上�
 ![First-Sync-Success.png](imgs/First-Sync-Success.png?raw=true)
 
 这条信息的出现表明了集群同步已经完毕。接下来我们就可以尝试使用Git去管理Kubernetes集群了。
- 
+
 我们先执行`kubectl get all`查看Kubernetes集群的当前状态。
 可以清楚的看到，我们没有手动的使用kubectl执行任何操作，Flux已经自动的帮我们做好了本地集群和远端Git Repo的同步工作，Nginx-Pod已经处在了Running状态。
 
